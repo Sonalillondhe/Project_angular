@@ -1,0 +1,36 @@
+
+<div class="container mt-4">
+  <div class="container">
+    <h3 class="mx-auto p-2" style="width: 400px;">
+     User Dashboard
+    </h3>
+    <table class="table table-bordered table align-middle">
+        <thead>
+          <tr>
+            <th scope="col">Action</th>
+            <th scope="col">ID</th>
+            <!-- <th scope="col">Sr.No</th> -->
+            <th scope="col">User Name</th>
+            <th scope="col">password</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact No</th>
+            <th scope="col">Gender</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of datafromapi ;let i=index">
+            <th><a (click)="deleteUser(i)">Delete </a>
+              <!-- <th><a [routerLink]="['/update-user',item.user_id]">Edit </a>&nbsp;&nbsp;
+           <a (click)="deleteUser(item.user_id)">Delete</a></th> -->
+            <!-- <th scope="row">{{i+1}}</th> -->
+            <th  scope="row">{{item.user_id}}</th>
+            <td>{{item.user_name}}</td>
+            <td>{{item.user_pwd}}</td>
+            <td>{{item.user_email}}</td>
+            <td>{{item.user_phone_no}}</td>
+            <td>{{item.user_gender}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  
