@@ -1,11 +1,10 @@
 
 <div class="container mt-4">
-  <div class="container">
-    <h3 class="mx-auto p-" style="width: 250px ;color: blueviolet;">
-     User Dashboard</h3>
-    <table class="table table-bordered table align-middle center ">
+    <h1 class="mx-auto p-" style="width: 250px ;color: blueviolet">
+     User Dashboard</h1>
+    <table class="table-bordered table align-middle center table-warning mytablecss">
         <thead>
-          <tr>
+          <tr class="table-primary">
             <th scope="col">Action</th>
             <th scope="col">ID</th>
             <!-- <th scope="col">Sr.No</th> -->
@@ -16,13 +15,13 @@
             <th scope="col">Gender</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           <tr *ngFor="let item of datafromapi ;let i=index">
-            <th><a (click)="deleteUser(i)">Delete </a>
-              <!-- <th><a [routerLink]="['/update-user',item.user_id]">Edit </a>&nbsp;&nbsp;
-           <a (click)="deleteUser(item.user_id)">Delete</a></th> -->
-            <!-- <th scope="row">{{i+1}}</th> -->
-            <th  scope="row">{{item.user_id}}</th>
+            <th><a [routerLink]="['/update-user',item.user_id]"
+               (click)="updateUser(item.user_id)"> Update </a> &nbsp; &nbsp;
+              <a (click)="deleteUser(item.user_id)"> Delete </a> </th>
+
+            <th scope="row">{{item.user_id}}</th>
             <td>{{item.user_name}}</td>
             <td>{{item.user_pwd}}</td>
             <td>{{item.user_email}}</td>

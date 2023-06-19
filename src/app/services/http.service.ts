@@ -10,9 +10,9 @@ export class HttpService {
 
   baseUrl:string="https://devrunner.co.in/machine_test/index.php/web_api/Users/";
 
-  httpHeader:HttpHeaders = new HttpHeaders().set("Content-Type", "multipart/form-data");
+  // httpHeader:HttpHeaders = new HttpHeaders().set("Content-Type", "multipart/form-data");
 
-  httpheader2:HttpHeaders =new HttpHeaders().set("Content-Type", "application/json");
+  httpheader:HttpHeaders =new HttpHeaders().set("Content-Type", "application/json");
 
   constructor(private http:HttpClient) { }
  
@@ -24,15 +24,20 @@ export class HttpService {
 
   getDataFromServer(endPoint:string)
   {
-      const url = this.baseUrl + endPoint;
-   return this.http.get(url,{headers:this.httpHeader});
+    const url = this.baseUrl + endPoint;
+    return this.http.get(url);
   }
   
-  DeleteDataFromserver(endPoint: string) 
+  DeleteDataFromserver(endPoint: string, id:any) 
   {   
     const url = this.baseUrl + endPoint;
-    return this.http.delete(url,{ headers: this.httpheader2 });
+    return this.http.delete(url,id);
   }
  
+  UpdateDataFromserver(endPoint: string, body:any) 
+  {   
+    const url = this.baseUrl + endPoint;
+    return this.http.put(url,body);
+  }
 }
 

@@ -10,10 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   datafromapi:User[]=[];
-  currentPage = 1;
-  itemsPerPage = 10;
   
-  // datafromapi:any;
   userEmail: string | null=null;
   userPass: string | null=null;
 
@@ -22,41 +19,39 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
 
    this.usersData();
-
-   console.log("activated route",this.route);
-   this.userEmail=this.route.snapshot.queryParamMap.get('user_email');
-   console.log(this.userEmail);
-   this.userPass=this.route.snapshot.queryParamMap.get('user_pwd');
-   console.log(this.userPass);
-  
-   
   }
 
   usersData()
   {
-     this.http.getDataFromServer("").subscribe((res:any)=>
+     this.http.getDataFromServer("Register").subscribe((res:any)=>
      {
-       console.log("result",res.data);
+       console.log("result",res.message);
        
-      //  if(res && res.length>0){
-        
-        this.datafromapi= res.data;
-        this.datafromapi=this.datafromapi;
-      // }
-      // this.datafromapi=res;
-      // this.datafromapi=this.datafromapi.data;
+      //  if(res && res.length>0)
+      //  {
+            this.datafromapi= res.data; 
+      //  }
+      
     },
    error=> {
     console.log("error");
     })
   }
+  
+  updateUser(userid:any){
+    
+  }
+
   deleteUser(user_id: any) 
   {
-    const endPoint = "remove_user/" + user_id;
-    this.http.DeleteDataFromserver(endPoint).subscribe((res: any) => 
+    console.log(user_id);
+
+    const endPoint = "remove_user";
+    this.http.DeleteDataFromserver(endPoint,user_id).subscribe((res: any) => 
     {
       console.log(res);
-      this.datafromapi.splice(user_id, 1);
+      console.log("deleted id",res.user_id);
+
     });
 
   }
