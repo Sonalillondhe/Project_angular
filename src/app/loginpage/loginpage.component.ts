@@ -52,7 +52,8 @@ export class LoginpageComponent implements OnInit {
     //   }
     // });
 
-    let endPoint = 'login?'+ 'user_email=' +this.loginForm.get('user_email')?.value + "&" + 'user_pwd=' +this.loginForm.get('user_pwd')?.value;
+    let endPoint = 'login?'+ 'user_email=' +this.loginForm.get('user_email')?.value + "&" +
+     'user_pwd=' +this.loginForm.get('user_pwd')?.value;
 
     this.errormessage='';
     this.http.getDataFromServer(endPoint).subscribe(

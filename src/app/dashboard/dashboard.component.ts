@@ -10,6 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   datafromapi:User[]=[];
+  currentPage = 1;
+  itemsPerPage = 10;
+  
   // datafromapi:any;
   userEmail: string | null=null;
   userPass: string | null=null;
