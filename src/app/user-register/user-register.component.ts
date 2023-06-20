@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpService } from '../services/http.service';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-register',
@@ -12,11 +13,17 @@ export class UserRegisterComponent implements OnInit {
   
   registrationForm!: FormGroup ;
   errormessage:string='';
-  constructor(private fb: FormBuilder,private https:HttpService) {
+  selectedId:string|null=null;
+  constructor(private fb: FormBuilder,private https:HttpService,private route:ActivatedRoute) {
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
     this.createFormStructure();
+
+    this.selectedId = this.route.snapshot.paramMap.get("id");
+    console.log("Selectedid", this.selectedId);
+    
     
   }
 
