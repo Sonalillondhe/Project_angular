@@ -55,13 +55,14 @@ export class LoginpageComponent implements OnInit {
         this.errormessage = '';
         console.log(response);
 
-        if (response.status == 1)
-        {
-          this.router.navigate(['/dashboard']);
-        }
         if (response.status === 0) 
         {
           this.errormessage = response.message;
+        }
+        else
+        if (response.status == 1)
+        {
+          this.router.navigate(['/Userdashboard']);
         }
       })
 
