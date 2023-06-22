@@ -28,16 +28,17 @@ export class HttpService {
     return this.http.get(url);
   }
   
-  DeleteDataFromserver(endPoint: string, id:any) 
+  DeleteDataFromserver(endPoint: string,Requestbody:any) 
   {   
     const url = this.baseUrl + endPoint;
-    return this.http.delete(url,id);
+    return this.http.delete(url,{'body':Requestbody});
   }
  
-  UpdateDataFromserver(endPoint: string, body:any) 
+  
+  UpdateUserData(endPoint: string, Requestbody:any) 
   {   
     const url = this.baseUrl + endPoint;
-    return this.http.put(url,body);
+    return this.http.put(url,Requestbody,{headers:this.httpheader});
   }
 }
 
