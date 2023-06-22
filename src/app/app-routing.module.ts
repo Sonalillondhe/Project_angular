@@ -9,10 +9,8 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
 const routes: Routes = [
   
   {path:'userRegister',component:UserRegisterComponent},
-  // {path:'update-user/:id',component:UserRegisterComponent},
   {path:'userLogin',component:LoginpageComponent},
   {path:'', redirectTo :'/userLogin', pathMatch:'full' },
-
   {path:'Userdashboard',component:UserdashboardComponent} 
 
 ];
